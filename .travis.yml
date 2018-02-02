@@ -24,3 +24,6 @@ after_success:
 before_deploy:
   - sed -e "s/IMAGENAME/$REPO:travis-$TRAVIS_BUILD_NUMBER/" Dockerrun.template > Dockerrun.aws.json
   
+deploy:
+  - cat Dockerrun.aws.json
+  
