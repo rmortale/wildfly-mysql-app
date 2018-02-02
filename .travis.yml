@@ -23,6 +23,7 @@ after_success:
 
 before_deploy:
   - sed -e "s#IMAGENAME#$REPO:travis-$TRAVIS_BUILD_NUMBER#" Dockerrun.template > Dockerrun.aws.json
+  - zip dockerrun Dockerrun.aws.json
   
 deploy:
   provider: elasticbeanstalk
@@ -32,7 +33,7 @@ deploy:
   app: "mysql-app"
   env: "mysqlApp-env"
   bucket_name: "elasticbeanstalk-eu-west-1-601912882130"
-  zip_file: "Dockerrun.aws.json"
+  zip_file: "dockerrun.zip"
   skip_cleanup: "true"
 
 
