@@ -26,6 +26,7 @@ public class Person implements Serializable {
 
     @Id
     @GeneratedValue()
+    @Column(name = "ID")
     public Long getId() {
         return id;
     }
