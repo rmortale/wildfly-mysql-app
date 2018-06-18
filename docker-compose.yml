@@ -4,14 +4,14 @@ version: '3.1'
 services:
 
   db:
-    image: mysql:5.6.40
+    image: mysql:8.0.11
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: wildflydb
 
   web:
-    image: rmortale/wildfly-mysql-app:travis-15
+    image: rmortale/wildfly-mysql-app:travis-17
     restart: always
     ports:
       - 8080:8080
