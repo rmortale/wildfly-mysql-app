@@ -1,0 +1,25 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql:8.0.11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: wildflydb
+
+  web:
+    image: rmortale/wildfly-mysql-app:travis-14
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      RDS_PASSWORD: example
+      RDS_USERNAME: root
+      RDS_DB_NAME: wildflydb
+      RDS_PORT: 3306
+      RDS_HOSTNAME: db
+
+
