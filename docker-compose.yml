@@ -11,7 +11,7 @@ services:
       MYSQL_DATABASE: wildflydb
 
   web:
-    image: rmortale/wildfly-mysql-app:travis-17
+    image: rmortale/wildfly-mysql-app:travis-18
     restart: always
     ports:
       - 8080:8080
